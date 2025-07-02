@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Chief Preview</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #0d0d0d;
+            color: white;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        header, footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: transparent;
+            z-index: 1000;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: transparent;
+            z-index: 1000;
+            font-weight: bold;
+            color: rgba(255, 215, 0, 0.7);
+            transition: all 0.3s ease;
+        }
+        footer:hover {
+            text-shadow: 0 0 10px gold;
+        }
+        section {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: gold;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+        .about, .services, .gallery {
+            margin-top: 2rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .image-slot {
+            background-color: #1a1a1a;
+            padding: 1rem;
+            border: 1px dashed #555;
+            text-align: center;
+            color: #aaa;
+        }
+        .image-slot.locked {
+            filter: blur(2px);
+            position: relative;
+        }
+        .services table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: collapse;
+        }
+        .services th, .services td {
+            border: 1px solid #555;
+            padding: 0.5rem;
+            text-align: left;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .cta button {
+            padding: 1rem 2rem;
+            background: gray;
+            color: #fff;
+            border: none;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+    
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .stat-box {
+            background: #1f1f1f;
+            padding: 1rem;
+            border: 1px solid #444;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .stat-box.locked {
+            opacity: 0.4;
+            position: relative;
+        }
+        .stat-box.locked::after {
+            content: '🔒';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2rem;
+        }
+
+
+        .view-toggle {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .view-toggle button {
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #777;
+            cursor: pointer;
+        }
+        .view-toggle button:hover {
+            background-color: #555;
+        }
+        .dashboard {
+            display: none;
+        }
+
+</style>
+</head>
+<body>
+
+<header>Preview – Brand Chief</header>
+
+<section class="hero">
+    <h1>Business Name</h1>
+    <p>Your short tagline goes here</p>
+
+    <div class="view-toggle">
+        <button onclick="showMain()">Main Site</button>
+        <button onclick="showDashboard()">Client Dashboard</button>
+    </div>
+
+</section>
+
+<section class="about">
+    <h2>About Us</h2>
+    <p>This section contains information about your business. Tell your story here.</p>
+</section>
+
+<section class="gallery">
+    <h2>Gallery (5-8 Image Limit)</h2>
+    <div class="gallery-grid">
+        <div class="image-slot">Image Slot 1</div>
+        <div class="image-slot">Image Slot 2</div>
+        <div class="image-slot">Image Slot 3</div>
+        <div class="image-slot">Image Slot 4</div>
+        <div class="image-slot">Image Slot 5</div>
+        <div class="image-slot locked">Locked Slot</div>
+        <div class="image-slot locked">Locked Slot</div>
+    </div>
+</section>
+
+<section class="services">
+    <h2>Services & Links</h2>
+    <table>
+        <tr><th>Service</th><th>Price</th><th>Link</th></tr>
+        <tr><td>Haircut</td><td>GHS 20</td><td><a href="#" target="_blank">Visit</a></td></tr>
+        <tr><td>Beard Trim</td><td>GHS 10</td><td><a href="#" target="_blank">Visit</a></td></tr>
+        <tr><td>Locked Service</td><td>Upgrade</td><td><span style="color:#777;">Locked</span></td></tr>
+    </table>
+</section>
+
+
+<section class="dashboard">
+    <h2>Client Dashboard (Preview)</h2>
+    <div class="dashboard-stats">
+        <div class="stat-box">
+            <h3>Images Used</h3>
+            <p>5 of 8</p>
+        </div>
+        <div class="stat-box">
+            <h3>Services Added</h3>
+            <p>2 of 3</p>
+        </div>
+        <div class="stat-box">
+            <h3>Watermark</h3>
+            <p>Active</p>
+        </div>
+        <div class="stat-box locked">
+            <h3>Analytics</h3>
+            <p>Locked</p>
+        </div>
+    </div>
+    <div class="cta">
+        <button disabled>Upgrade to Full Control</button>
+    </div>
+</section>
+
+<section class="cta">
+    <button disabled>Unlock Full Features</button>
+</section>
+
+<footer>Brand Chief | Preview Only</footer>
+
+
+    <script>
+        function showDashboard() {
+            document.querySelector('.about').style.display = 'none';
+            document.querySelector('.gallery').style.display = 'none';
+            document.querySelector('.services').style.display = 'none';
+            document.querySelector('.cta').style.display = 'none';
+            document.querySelector('.dashboard').style.display = 'block';
+        }
+
+        function showMain() {
+            document.querySelector('.about').style.display = 'block';
+            document.querySelector('.gallery').style.display = 'block';
+            document.querySelector('.services').style.display = 'block';
+            document.querySelector('.cta').style.display = 'block';
+            document.querySelector('.dashboard').style.display = 'none';
+        }
+
+        // On page load, show main site and hide dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            showMain();
+        });
+    </script>
+
+</body>
+</html>
